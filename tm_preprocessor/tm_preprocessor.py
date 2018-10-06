@@ -5,6 +5,7 @@ from gensim import corpora
 import warnings, sys, pkg_resources
 from collections import defaultdict
 
+# nltk.download('punkt')
 
 import utils
 

@@ -20,9 +20,5 @@ springer_titles=list(np.transpose(np.array(springer["Book Title"])))
 wiley_titles=list(np.transpose(np.array(wiley["Title"])))
 
 p=Preprocessor(documents=mit_titles)
-
-'''
-for title in p.corpus:
-    if title[-1] == '/':
-        title.remove(title[-1])
-'''
+p.remove_digits_punctuactions()
+print(p.get_word_ranking())
