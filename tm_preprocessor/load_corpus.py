@@ -13,3 +13,6 @@ mit=pd.read_csv(my_dir+'MIT-IEEE-eBooks.csv',encoding = "ISO-8859-1", header=0, 
 springer=pd.read_csv(my_dir+'Springer-eBooks.csv',encoding = "ISO-8859-1", header=0, sep=",")
 wiley=pd.read_csv(my_dir+'Wiley-IEEE-eBooks.csv',encoding = "ISO-8859-1", header=0, sep=",")
 
+mit_titles=list(np.transpose(np.array(mit["Title"])))
+springer_titles=list(np.transpose(np.array(springer["Book Title"])))
+wiley_titles=list(np.transpose(np.array(wiley["Title"])))
