@@ -7,6 +7,8 @@ from collections import defaultdict
 
 import utils
 
+my_dir = 'data/'
+
 MAJOR_VERSION = sys.version_info[0]
 if MAJOR_VERSION < 3:
     from string import digits, maketrans
@@ -78,7 +80,7 @@ class Preprocessor(object):
         else:
             self.stopwords = np.loadtxt(stopword_file, dtype=str)
 
-        #self.corpus = np.array([nltk.word_tokenize(doc) for doc in self.documents])
+        self.corpus = np.array([nltk.word_tokenize(doc) for doc in self.documents])
         #self.corpus = np.array([[token.lower() for token in doc] for doc in self.corpus])
 
 
