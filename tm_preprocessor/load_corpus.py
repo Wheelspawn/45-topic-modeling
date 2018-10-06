@@ -6,6 +6,8 @@ Created on Sat Oct  6 12:03:21 2018
 """
 
 import pandas as pd
+import numpy as np
+from tm_preprocessor import Preprocessor
 
 my_dir = 'data/'
 
@@ -16,3 +18,5 @@ wiley=pd.read_csv(my_dir+'Wiley-IEEE-eBooks.csv',encoding = "ISO-8859-1", header
 mit_titles=list(np.transpose(np.array(mit["Title"])))
 springer_titles=list(np.transpose(np.array(springer["Book Title"])))
 wiley_titles=list(np.transpose(np.array(wiley["Title"])))
+
+p=Preprocessor(documents=mit_titles)

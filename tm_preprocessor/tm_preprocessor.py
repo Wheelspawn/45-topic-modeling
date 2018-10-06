@@ -5,7 +5,7 @@ from gensim import corpora
 import warnings, sys, pkg_resources
 from collections import defaultdict
 
-from tm_preprocessor import utils
+import utils
 
 MAJOR_VERSION = sys.version_info[0]
 if MAJOR_VERSION < 3:
