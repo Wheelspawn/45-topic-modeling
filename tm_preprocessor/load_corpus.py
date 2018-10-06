@@ -6,7 +6,7 @@ Created on Sat Oct  6 12:03:21 2018
 """
 
 
-import pandas as ps
+import pandas as pd
 
 my_dir = 'data/'
 
