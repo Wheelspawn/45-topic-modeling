@@ -1,7 +1,7 @@
 import nltk
 import numpy as np
 import pandas as pd
-from gensim import corpora
+from gensim import corpora, models
 import warnings, sys, pkg_resources
 from collections import defaultdict
 
