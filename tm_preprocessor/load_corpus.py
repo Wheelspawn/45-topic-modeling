@@ -29,8 +29,17 @@ mit_topics=30
 springer_topics=30
 wiley_topics=30
 
-p=Preprocessor(documents=springer_titles)
-p.remove_digits_punctuactions()
+s=Preprocessor(documents=springer_titles)
+s.remove_digits_punctuactions()
 # print(p.get_word_ranking())
 
-lda = LDA(n_topics=springer_topics, max_iter=5, learning_method='online', learning_offset=50.,random_state=0).fit(p.corpus)
+springer_dict = gensim.corpora.Dictionary(s.corpus)
+
+count = 0
+for k, v in dictionary.iteritems():
+    print(k, v)
+    count += 1
+    if count > 30:
+        break
+
+# lda = LDA(n_topics=springer_topics, max_iter=5, learning_method='online', learning_offset=50.,random_state=0).fit(s.corpus)
