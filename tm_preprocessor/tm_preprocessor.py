@@ -5,7 +5,6 @@ from gensim import corpora
 import warnings, sys, pkg_resources
 from collections import defaultdict
 
-nltk.download('punkt')
 
 import utils
 
@@ -52,7 +51,7 @@ class Preprocessor(object):
     """
 
     def __init__(self, documents, \
-                 punctuations=r'''"!@#$%^*(),.:;&=+-_?\'`[]''', \
+                 punctuations=r'''"!@#$%^*(),.:;&=+-_?\/'`[]''', \
                  stopword_file=None):
         ''' Init function for `Preprocessor` class
 
