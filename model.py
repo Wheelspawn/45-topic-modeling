@@ -20,6 +20,13 @@ Created on Sat Apr 14 12:18:28 2018
 import pandas as pd
 import re
 
+class StemTokenizer(object):
+    def __init__(self):
+        self.wnl = PorterStemmer() 
+    def __call__(self, doc):
+        return [self.wnl.stem(t).lower() for t in re.split(r'[\W\d]',doc) if t not in string.punctuation and len(t) > 1 and t != 'said']
+    
+
 docs=["tm_preprocessor/data/MIT-IEEE-eBooks.csv",
       "tm_preprocessor/data/Springer-eBooks.csv",
       "tm_preprocessor/data/Wiley-IEEE-eBooks.csv"]
@@ -38,12 +45,6 @@ for i in range(len(docs)):
     from nltk.stem.porter import PorterStemmer 
     import string
     
-    class StemTokenizer(object):
-        def __init__(self):
-            self.wnl = PorterStemmer() 
-        def __call__(self, doc):
-            return [self.wnl.stem(t).lower() for t in re.split(r'[\W\d]',doc) if t not in string.punctuation and len(t) > 1 and t != 'said']
-    
     # Use a CountVectorizer to create the document term matrix
     from sklearn.feature_extraction.text import CountVectorizer
     
@@ -61,9 +62,9 @@ for i in range(len(docs)):
     ###############################################################################
     import sklearn.decomposition as dec
     
-    lda = dec.LatentDirichletAllocation(n_topics=6)
+    lda = dec.LatentDirichletAllocation(n_topics=10)
     lda.fit(df_bag)
-    n_top_words = 3
+    n_top_words = 5
     
     print('\n')
     print(publishers[i])
